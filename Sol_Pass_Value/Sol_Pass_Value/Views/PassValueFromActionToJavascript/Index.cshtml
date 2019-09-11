@@ -1,0 +1,37 @@
+﻿@model Sol_Pass_Value.Models.DemoModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+@*Using Hidden Value*@
+<input id="hdnValue" type="hidden" value="@Model.Message" />
+
+@*Using Data Attribute*@
+<div id="divObj" data-message="@Model.Message">
+
+</div>
+
+<button id="btnSubmit" class="btn btn-primary" onclick="onButtonClick();">Submit</button>
+
+
+@section Scripts{ 
+
+
+<script>
+
+    function onButtonClick(){
+
+        var hiddenValue = $("#hdnValue").val();
+        console.log(hiddenValue);
+
+        var divObj = $("#divObj").data("message");
+        console.log(divObj);
+
+    }
+
+</script>
+
+}

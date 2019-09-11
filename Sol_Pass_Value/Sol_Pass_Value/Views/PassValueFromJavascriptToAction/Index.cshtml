@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+
+<form id="frmMain" method="post">
+    <input id="hiddenValue" name="hiddenValue" type="hidden" />
+    <br />
+    <input type="submit"  id="btnSubmit" class="btn btn-primary" value="Submit" onclick="onButtonClick(); return false"/>
+
+    @if (ViewBag.Data != null)
+    {
+        <h2>@ViewBag.Data</h2>
+    }
+
+
+</form>
+
+
+@section Scripts{ 
+
+    <script>
+
+        function onButtonClick() {
+
+            var value = "Kishor Naik";
+
+            $("#hiddenValue").val(value);
+
+
+            $("#frmMain").attr("action", '@Url.Action("OnSubmit", "PassValueFromJavascriptToAction")');
+            $("#frmMain").submit();
+
+        }
+
+    </script>
+
+}
+
